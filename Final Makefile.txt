@@ -1,0 +1,32 @@
+# A simple makefile template for creating an executable mainProg
+CC = g++
+C11STD = -std=c++11
+DEBUG = -g
+CFLAGS = $(C11STD) -Wall -c $(DEBUG)
+LFLAGS = $(C11STD) -Wall $(DEBUG)
+
+OBJS = cuboidBlocks.o cylindricalblocks.o rectBlocks.o sphericalBlocks.o sqrBaseRectBlocks.o
+mainProg: $(OBJS)
+$(CC) $(LFLAGS) $(OBJS) -o mainProg
+
+cuboidBlocks.o= cuboidBlocks.h cuboidBlocks.cpp
+$(CC) $(CFLAGS) cuboidBlocks.cpp
+
+cylindricalblocks.o= cylindricalblocks.h cylindricalblocks.cpp
+$(CC) $(CFLAGS) cyndricalblocks.cpp
+
+rectBlocks.o= rectBlocks.h rectBlocks.cpp
+$(CC) $(CFLAGS) rectBlocks.cpp
+
+sphericalBlocks.o= sphericalBlocks.h sphericalBlocks.cpp
+$(CC) $(CFLAGS) sphericalBlocks.cpp
+
+sqrBaseRectBlocks.o= sqrBaseRectBlocks.h sqrBaseRectBlocks.cpp
+$(CC) $(CFLAGS) sqrBaseRectBlocks.cpp
+
+clean:
+	\rm*.o* ̃ main
+# Alternatively rm -rf*.o* ̃ mainProg
+tar:
+	tar cvf tar cvf mainProg.tar cuboidBlocks.cpp cuboidBlocks.h cylindricalBlocks.cpp cylindricalblocks.h rectBlocks.cpp rectBlocks.h sphericalBlocks.cpp sphericalBlocks.h sqrBaseRectBlocks.cpp sqrBaseRectBlocks.h
+
